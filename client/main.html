@@ -1,0 +1,46 @@
+<head>
+  <title>Talk Remote</title>
+</head>
+
+<body>
+  <div class="container">
+      {{renderPage}}
+  </div>
+</body>
+
+<template name="mainPage">
+    <p>TalkRemote</p>
+    <p>Pick a room. (soon)</p>
+    <div class="btn-group">
+      <button class="btn teacher">Teachers</button>
+    </div>
+</template>
+
+<template name="login">
+  <p>log in</p>
+</template>
+
+<template name="teacherView">
+    {{> teacherHeader}}
+    {{> remote}}
+</template>
+
+<template name="teacherHeader">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/teacher">Teacher</a>
+      <ul class="nav">
+        <li><a href="/teacher">Remote</a></li>
+        <li><a href="/studentOutput">Stats</a></li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="not_found">
+  <h2>Welcome to the {{roomName}} room.</h2>
+  <p>Greyed out remote here.</p>
+</template>
+
+
+

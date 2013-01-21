@@ -1,0 +1,37 @@
+<template name="studentTotalsPane">
+    {{> studentList}}
+</template>
+
+<template name="studentList">
+  <div class="studentList">
+  	stuff
+    {{#each students}}
+      {{> student}}
+    {{/each}}
+  </div>
+
+  {{#if selected_name}}
+  <div class="details">
+    <div class="name">{{selected_name}}</div>
+    <input type="button" class="play" value="Play" />
+    <input type="button" class="pause" value="Pause" />
+    <input type="button" class="rewind" value="Rewind" />
+    <input type="button" class="fastforward" value="FastForward" />
+  </div>
+  {{/if}}
+
+</template>
+
+<template name="student">
+  <div class="student {{selected}}">
+  	<table class="table-striped">
+  		<tr>
+	      <td><span class="name">{{name}}</span></td>
+	      <td><span class="rating">{{Play}}</span></td>
+	      <td><span class="rating">{{Pause}}</span></td>
+	      <td><span class="rating">{{Rewind}}</span></td>
+	      <td><span class="rating">{{FastForward}}</span></td>
+		</tr>
+	</table>
+  </div>
+</template>
