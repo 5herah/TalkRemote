@@ -1,10 +1,41 @@
 <template name="remote">
+	<div class="remoteStats">
+		<ul>
+			<li class="remoteButtonStats" id="pauseStats">
+				<p>12</p>
+			</li>
+			<li class="remoteButtonStats" id="rewindStats">
+				<p>4</p>
+			</li>
+			<li class="remoteButtonStats" id="playStats">
+				<p>3</p>
+			</li>
+			<li class="remoteButtonStats" id="fastforwardStats">
+				<p>9</p>
+			</li>
+			<li class="remoteButtonStats" id="ejectStats">
+				<p>1</p>
+			</li>
+		</ul>
+	</div>
+
 	<div class="remote">
-		<p>Remote</p>
-		<div class="btn" id="rewind">rewind</div>
-		<div class="btn" id="pause">pause</div>
-		<div class="btn" id="play">play</div>
-		<div class="btn" id="fastforward">fast-forward</div>
-		<div class="btn" id="eject">eject</div>
+	    <ul>
+			<li class="remoteButton" id="pause">
+				<img src="pause.png">
+			</li>
+			<li class="remoteButton" id="rewind">
+				<img src="rewind.png">
+			</li>
+			<li class="remoteButton" id="play">
+				<img src="play.png">
+			</li>
+			<li class="remoteButton" id="fastforward">
+				<img src="fastforward.png">
+			</li>
+			<li class="remoteButton" id="eject">
+				<img src="eject.png">
+			</li>
+		</ul>
 	</div>
 </template>

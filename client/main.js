@@ -22,14 +22,15 @@ Template.not_found.roomName = function(){
 };
 
 Template.remote.events({
-  'click .btn': function(event){
-    var button = event.target.id;
+  'click .remoteButton': function(event){
+    var button = event.target.parentElement.id;
+    console.log(button);
     var push = {};
     push[button] = 1;
     Votes.insert(push);
     var query = {};
     query[button] = {$exists: true };
-    $("#" + button).html(Votes.find(query).count());
+    $("#" + button + "Stats").html(Votes.find(query).count());
   }
 });
 
