@@ -2,12 +2,18 @@ Meteor.Router.add({
   '/': 'mainPage',
   '/teacher': 'teacherView',
   '/teacherRemote':'teacherRemote',
+  '/student': 'studentView',
+  '/studentRemote':'studentRemote',
+  '/studentTotalsPane':'studentTotalsPane',
   '*': 'not_found'
 });
 
 Template.mainPage.events({
   'click .teacher' : function(){
     Meteor.Router.to("/teacher");
+  },
+  'click .student' : function(){
+    Meteor.Router.to("/student");
   }
 });
 
@@ -24,10 +30,14 @@ Template.not_found.roomName = function(){
 Template.remote.events({
   'click .remoteButton': function(event){
     var button = event.target.parentElement.id;
-    console.log(button);
     var push = {};
     push[button] = 1;
-    Votes.insert(push);
+
+    var roomName = this.location.pathname;
+    var room = {};
+    room["room"] = roomName;
+
+    Votes.insert(push, room);
     var query = {};
     query[button] = {$exists: true };
     $("#" + button + "Stats").html(Votes.find(query).count());

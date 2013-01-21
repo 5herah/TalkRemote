@@ -7,14 +7,11 @@
   <div class="container">
       {{renderPage}}
   </div>
+    {{> footer}}
 </body>
 
 <template name="mainPage">
-    <p>TalkRemote</p>
-    <p>Pick a room. (soon)</p>
-    <div class="btn-group">
-      <button class="btn teacher">Teachers</button>
-    </div>
+    <h1>TalkRemote</h1>
 </template>
 
 <template name="login">
@@ -24,6 +21,7 @@
 <template name="teacherView">
     {{> teacherHeader}}
     {{> remote}}
+    {{> remoteStats}}
 </template>
 
 <template name="teacherHeader">
@@ -32,15 +30,40 @@
       <a class="brand" href="/teacher">Teacher</a>
       <ul class="nav">
         <li><a href="/teacher">Remote</a></li>
-        <li><a href="/studentOutput">Stats</a></li>
+        <li><a href="/studentTotalsPane">Stats</a></li>
       </ul>
     </div>
   </div>
 </template>
 
+<template name="studentView">
+    {{> studentHeader}}
+    {{> remote}}
+</template>
+
+<template name="studentHeader">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/student">Student Remote</a>
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+  <ul class="pager">
+  <li><a href="/">Home</a></li>
+  <li><a href="/teacher">Teachers</a></li>
+  <li><a href="/student">Students</a></li>
+</ul>
+</template>
+
 <template name="not_found">
-  <h2>Welcome to the {{roomName}} room.</h2>
-  <p>Greyed out remote here.</p>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/student">Remote Room {{roomName}}</a>
+    </div>
+  </div>
+  {{> remote}}
 </template>
 
 
