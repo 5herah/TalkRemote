@@ -20,12 +20,29 @@ Template.room.roomName = function(){
   return this.location.pathname;
 };
 
-Template.remote.votes = function(){
-  var initialbuttons = ["pause", "rewind", "play", "fastforward", "eject"];
+Template.remoteStats.pauseVotes = function(){
+  //return 
+  return Votes.find( { button: "pause" } ).count();
+}
 
-  for(var i; i<initialbuttons.length; i++){
-    $("#" + initialbuttons[i] + "Stats").html(Votes.find(query).count());
-  }
+Template.remoteStats.rewindVotes = function(){
+  //return 
+  return Votes.find( { button: "rewind" } ).count();
+}
+
+Template.remoteStats.playVotes = function(){
+  //return 
+  return Votes.find( { button: "play" } ).count();
+}
+
+Template.remoteStats.fastforwardVotes = function(){
+  //return 
+  return Votes.find( { button: "fastforward" } ).count();
+}
+
+Template.remoteStats.ejectVotes = function(){
+  //return 
+  return Votes.find( { button: "eject" } ).count();
 }
 
 Template.remote.events({
@@ -35,18 +52,13 @@ Template.remote.events({
 
     // }else{
     var button = event.target.parentElement.id;
-    var push = {};
-    push[button] = 1;
 
-    var roomName = this.location.pathname;
-    var room = {};
-    room["room"] = roomName;
-
-    var username= Meteor.user().profile.name;
-    var name = {};
-    name["username"] = username;
-
-    Votes.insert(push, room, name);
+    Votes.insert({
+      room: this.location.pathname,
+      username: "dude",//Meteor.user().profile.name,
+      userID: "122332",//Meteor.user()._id,
+      button: button
+    });
 
     var query = {};
     query[button] = {$exists: true };
