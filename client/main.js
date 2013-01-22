@@ -1,34 +1,39 @@
 Meteor.Router.add({
   '/': 'mainPage',
-  '/teacher': 'teacherView',
   '/teacherRemote':'teacherRemote',
-  '/student': 'studentView',
   '/studentRemote':'studentRemote',
   '/studentTotalsPane':'studentTotalsPane',
-  '*': 'not_found'
+  '*/teacher': 'teacherView',
+  '*': 'room'
 });
+
+// use this code to manage active state on buttons
+// $("li a").click( function() {
+//   $(".active").removeClass("active");
+//   $(this).parent("li").addClass("active");
+// });
 
 Template.mainPage.events({
-  'click .teacher' : function(){
-    Meteor.Router.to("/teacher");
-  },
-  'click .student' : function(){
-    Meteor.Router.to("/student");
-  }
 });
 
-Template.not_found.events({
-  'click p': function(){
-    return this.location.pathname;
-  }
-});
-
-Template.not_found.roomName = function(){
+Template.room.roomName = function(){
   return this.location.pathname;
 };
 
+Template.remote.votes = function(){
+  var initialbuttons = ["pause", "rewind", "play", "fastforward", "eject"];
+
+  for(var i; i<initialbuttons.length; i++){
+    $("#" + initialbuttons[i] + "Stats").html(Votes.find(query).count());
+  }
+}
+
 Template.remote.events({
   'click .remoteButton': function(event){
+    //determine if this is a student or teacher iew. if teacher view, don't allow incrementation. otherwise move forward with the base logic.
+    // if(){
+
+    // }else{
     var button = event.target.parentElement.id;
     var push = {};
     push[button] = 1;
@@ -37,10 +42,17 @@ Template.remote.events({
     var room = {};
     room["room"] = roomName;
 
-    Votes.insert(push, room);
+    var username= Meteor.user().profile.name;
+    var name = {};
+    name["username"] = username;
+
+    Votes.insert(push, room, name);
+
     var query = {};
     query[button] = {$exists: true };
     $("#" + button + "Stats").html(Votes.find(query).count());
+    //}
+
   }
 });
 

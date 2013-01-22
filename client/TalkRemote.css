@@ -99,6 +99,12 @@ a{
     font-family:"Fjalla One";
 }
 
+.loginButtons{
+    margin: 40px auto;
+    width: 166px;
+}
+
+
 .student {
     cursor: pointer;
     padding: 5px;
