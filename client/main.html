@@ -8,13 +8,15 @@
 
 <body>
   <div class="container">
-      {{renderPage}}
+    {{renderPage}}
   </div>
     {{> footer}}
 </body>
 
 <template name="mainPage">
     <h1>TalkRemote</h1>
+    <p>(pretend that here is a blurb about TalkRemote. Also brief instructions for use.)</p>
+    {{> recentRooms}}
 </template>
 
 <template name="teacherView">
@@ -45,8 +47,8 @@
 
 <template name="footer">
   <ul class="pager">
-  <li><a href="/">Home</a></li>
-</ul>
+    <li><a href="/">Home</a></li>
+  </ul>
 </template>
 
 <template name="room">
@@ -55,11 +57,18 @@
       <a class="brand" href="/student">Remote Room {{roomName}}</a>
     </div>
   </div>
+
   {{> remote}}
+
   <div class="loginButtons">
     {{loginButtons}}
   </div>
 </template>
+
+<template name="recentRooms">
+  <p>(pretend here is a table that shows some of the recent rooms visited.)</p>
+</template>
+
 
 
 

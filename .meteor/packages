@@ -10,3 +10,5 @@ bootstrap
 router
 accounts-facebook
 accounts-ui
+stylus
+d3js-package

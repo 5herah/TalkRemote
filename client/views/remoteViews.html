@@ -1,21 +1,11 @@
 <template name="remote">
 	<div class="remote">
 	    <ul>
-			<li class="remoteButton" id="pause">
-				<img src="/pause.png">
-			</li>
-			<li class="remoteButton" id="rewind">
-				<img src="/rewind.png">
-			</li>
-			<li class="remoteButton" id="play">
-				<img src="/play.png">
-			</li>
-			<li class="remoteButton" id="fastforward">
-				<img src="/fastforward.png">
-			</li>
-			<li class="remoteButton" id="eject">
-				<img src="/eject.png">
-			</li>
+			<li class="remoteButton" id="pause"></li>
+			<li class="remoteButton" id="rewind"></li>
+			<li class="remoteButton" id="play"></li>
+			<li class="remoteButton" id="fastforward"></li>
+			<li class="remoteButton" id="eject"></li>
 		</ul>
 	</div>
 </template>
@@ -23,11 +13,9 @@
 <template name="remoteStats">
 	<div class="remoteStats">
 		<ul>
-			<li class="remoteButtonStats" id="pauseStats"><p>{{pauseVotes}}</p></li>
-			<li class="remoteButtonStats" id="rewindStats"><p>{{rewindVotes}}</p></li>
-			<li class="remoteButtonStats" id="playStats"><p>{{playVotes}}</p></li>
-			<li class="remoteButtonStats" id="fastforwardStats"><p>{{fastforwardVotes}}</p>
-			</li><li class="remoteButtonStats" id="ejectStats"><p>{{ejectVotes}}</p></li>
+			{{#each voteStats}}
+				<li class="remoteButtonStats" id="{{button}}Stats"><p>{{voteCount}}</p></li>
+			{{/each}}
 		</ul>
 	</div>
 </template>

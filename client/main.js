@@ -1,10 +1,10 @@
 Meteor.Router.add({
   '/': 'mainPage',
-  '/teacherRemote':'teacherRemote',
-  '/studentRemote':'studentRemote',
-  '/studentTotalsPane':'studentTotalsPane',
-  '*/teacher': 'teacherView',
-  '*': 'room'
+  '/:room' : function(room){
+    Session.set('roomName', room);
+    return 'room';
+  },
+  '*/teacher' : 'teacherView'
 });
 
 // use this code to manage active state on buttons
@@ -13,58 +13,56 @@ Meteor.Router.add({
 //   $(this).parent("li").addClass("active");
 // });
 
-Template.mainPage.events({
-});
-
 Template.room.roomName = function(){
   return this.location.pathname;
 };
 
-Template.remoteStats.pauseVotes = function(){
-  //return 
-  return Votes.find( { button: "pause" } ).count();
+Template.remoteStats.voteStats = function(){
+  var uniquedVotes = {};
+
+  Votes.find({}, {sort: {timestamp: 1}})
+    .map(function(vote){
+      uniquedVotes[vote.username] = vote;
+    }); // turn uniqued votes into an array of votes
+
+  
+  // var getVotes = function(button){
+  //   var votes = 0;
+
+  //   _.each(uniquedVotes, function(){
+  //       if value = button
+  //       votes = votes + 1;
+  //     })
+  // }
+
+  var voteStats = [
+    {
+      button: 'play',
+      voteCount: 0//count of uniqued votes where the value is play.
+    }
+  ];
+  return voteStats;
+
+  // return [
+  //   {
+  //     votes: Votes.find({button:"eject", room:Session.get('roomName')}).count(),
+  //     button: 'eject'
+  //   }
+  // ];
 }
 
-Template.remoteStats.rewindVotes = function(){
-  //return 
-  return Votes.find( { button: "rewind" } ).count();
-}
-
-Template.remoteStats.playVotes = function(){
-  //return 
-  return Votes.find( { button: "play" } ).count();
-}
-
-Template.remoteStats.fastforwardVotes = function(){
-  //return 
-  return Votes.find( { button: "fastforward" } ).count();
-}
-
-Template.remoteStats.ejectVotes = function(){
-  //return 
-  return Votes.find( { button: "eject" } ).count();
-}
 
 Template.remote.events({
   'click .remoteButton': function(event){
-    //determine if this is a student or teacher iew. if teacher view, don't allow incrementation. otherwise move forward with the base logic.
-    // if(){
-
-    // }else{
     var button = event.target.parentElement.id;
 
     Votes.insert({
       room: this.location.pathname,
-      username: "dude",//Meteor.user().profile.name,
-      userID: "122332",//Meteor.user()._id,
-      button: button
+      username: 'dude',//Meteor.user().profile.name,
+      userID: '23534',//Meteor.user()._id,
+      button: button,
+      timestamp: Date()
     });
-
-    var query = {};
-    query[button] = {$exists: true };
-    $("#" + button + "Stats").html(Votes.find(query).count());
-    //}
-
   }
 });
 

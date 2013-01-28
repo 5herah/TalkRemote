@@ -1,5 +1,7 @@
 {
   "packages": {
-    "router": {}
+    "router": {},
+    "stylus-mixin": {},
+    "d3js-package": {}
   }
 }
