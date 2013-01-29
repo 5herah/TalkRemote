@@ -26,18 +26,42 @@ Template.remoteStats.voteStats = function(){
     }); // turn uniqued votes into an array of votes
 
   
-  // var getVotes = function(button){
-  //   var votes = 0;
+  var getVoteCount = function(button){
+    var count = 0;
 
-  //   _.each(uniquedVotes, function(){
-  //       if value = button
-  //       votes = votes + 1;
-  //     })
-  // }
+    _.each(uniquedVotes, function(vote){
+      //console.log(vote.value);
+      if(vote.button === button){
+        count = count + 1;
+      }
+    });
+
+    return count;
+  }
 
   var voteStats = [
     {
+      button: 'pause',
+      voteCount: getVoteCount('pause')//count of uniqued votes where the value is play.
+    },
+
+    {
+      button: 'rewind',
+      voteCount: 0//count of uniqued votes where the value is play.
+    },
+
+    {
       button: 'play',
+      voteCount: 0//count of uniqued votes where the value is play.
+    },
+
+    {
+      button: 'fastforward',
+      voteCount: 0//count of uniqued votes where the value is play.
+    },
+
+    {
+      button: 'eject',
       voteCount: 0//count of uniqued votes where the value is play.
     }
   ];
@@ -54,12 +78,13 @@ Template.remoteStats.voteStats = function(){
 
 Template.remote.events({
   'click .remoteButton': function(event){
-    var button = event.target.parentElement.id;
+    var button = event.target.id;
+    console.log(button);
 
     Votes.insert({
       room: this.location.pathname,
-      username: 'dude',//Meteor.user().profile.name,
-      userID: '23534',//Meteor.user()._id,
+      username: Meteor.user().profile.name,
+      userID: Meteor.user()._id,
       button: button,
       timestamp: Date()
     });
