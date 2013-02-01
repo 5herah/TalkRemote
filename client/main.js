@@ -21,6 +21,12 @@ Template.mainPage.events({
   'submit': function(event, target){
     event.preventDefault();
     Meteor.Router.to($('[name=roomName]').val());
+  },
+  'click .studentdemo': function(){
+    Meteor.Router.to('studentdemo');
+  },
+  'click .teacherdemo': function(){
+    Meteor.Router.to('studentdemo/teacher');
   }
 
 });
