@@ -17,7 +17,33 @@ Template.room.roomName = function(){
   return this.location.pathname;
 };
 
+Template.mainPage.events({
+  'submit': function(event, target){
+    event.preventDefault();
+    Meteor.Router.to($('[name=roomName]').val());
+  }
+
+});
+
 Template.remoteStats.voteStats = function(){
+  return [
+    makeVoteStat('pause'),
+    makeVoteStat('rewind'),
+    makeVoteStat('play'),
+    makeVoteStat('fastforward'),
+    makeVoteStat('eject'),
+  ];
+};
+
+var makeVoteStat = function(button){
+  return {
+    button: button,
+    voteCount: getVoteCount(button)//count of uniqued votes where the value is play.
+  };
+};
+
+var getVoteCount = function(button){
+  // todo: do this uniquing with miniMongo somehow
   var uniquedVotes = {};
 
   Votes.find({}, {sort: {timestamp: 1}})
@@ -25,56 +51,10 @@ Template.remoteStats.voteStats = function(){
       uniquedVotes[vote.username] = vote;
     }); // turn uniqued votes into an array of votes
 
-  
-  var getVoteCount = function(button){
-    var count = 0;
-
-    _.each(uniquedVotes, function(vote){
-      //console.log(vote.value);
-      if(vote.button === button){
-        count = count + 1;
-      }
-    });
-
-    return count;
-  }
-
-  var voteStats = [
-    {
-      button: 'pause',
-      voteCount: getVoteCount('pause')//count of uniqued votes where the value is play.
-    },
-
-    {
-      button: 'rewind',
-      voteCount: 0//count of uniqued votes where the value is play.
-    },
-
-    {
-      button: 'play',
-      voteCount: 0//count of uniqued votes where the value is play.
-    },
-
-    {
-      button: 'fastforward',
-      voteCount: 0//count of uniqued votes where the value is play.
-    },
-
-    {
-      button: 'eject',
-      voteCount: 0//count of uniqued votes where the value is play.
-    }
-  ];
-  return voteStats;
-
-  // return [
-  //   {
-  //     votes: Votes.find({button:"eject", room:Session.get('roomName')}).count(),
-  //     button: 'eject'
-  //   }
-  // ];
-}
-
+  return _(uniquedVotes).reduce(function(count, vote){
+    return count + (vote.button === button ? 1 : 0);
+  }, 0);
+};
 
 Template.remote.events({
   'click .remoteButton': function(event){

@@ -14,15 +14,21 @@
 </body>
 
 <template name="mainPage">
-    <h1>TalkRemote</h1>
-    <p>(pretend that here is a blurb about TalkRemote. Also brief instructions for use.)</p>
-    {{> recentRooms}}
+  <h1>TalkRemote</h1>
+  <p>TalkRemote is a remote control for lectures. Sherah is going to write a good blurb and instructions here but right now she is busy coding shit so she can't do it yet.</p>
+  <div class="frontPageRoomForm">
+    <form class="goToRoomForm">
+      <h3>Join a room:</h3>
+      <input type="text" name="roomName" placeholder="(Room name)">
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
 </template>
 
 <template name="teacherView">
-    {{> teacherHeader}}
-    {{> remote}}
-    {{> remoteStats}}
+  {{> teacherHeader}}
+  {{> remote}}
+  {{> remoteStats}}
 </template>
 
 <template name="teacherHeader">
@@ -65,9 +71,6 @@
   </div>
 </template>
 
-<template name="recentRooms">
-  <p>(pretend here is a table that shows some of the recent rooms visited.)</p>
-</template>
 
 
 
