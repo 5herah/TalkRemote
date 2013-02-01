@@ -65,15 +65,18 @@ var getVoteCount = function(button){
 Template.remote.events({
   'click .remoteButton': function(event){
     var button = event.target.id;
-    console.log(button);
+    console.log(event.target.parentElement);
 
     Votes.insert({
       room: this.location.pathname,
-      username: Meteor.user().profile.name,
-      userID: Meteor.user()._id,
+      username: 'person',//Meteor.user().profile.name,
+      userID: 232323,//Meteor.user()._id,
       button: button,
       timestamp: Date()
     });
+
+    $(".activeButton").removeClass("activeButton");
+    event.target.parentElement.addClass('activeButton');
   }
 });
 
