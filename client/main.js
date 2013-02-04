@@ -64,6 +64,8 @@ var getVoteCount = function(button){
 
 Template.remote.events({
   'click .remoteButton': function(event){
+    $('#loginButtons').modal('show');
+
     var button = event.target.id;
     console.log(event.target.parentElement);
 

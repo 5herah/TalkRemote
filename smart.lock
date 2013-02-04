@@ -8,7 +8,8 @@
     "basePackages": {
       "router": {},
       "stylus-mixin": {},
-      "d3js-package": {}
+      "d3js-package": {},
+      "font-awesome": {}
     },
     "packages": {
       "router": {
@@ -26,10 +27,20 @@
         "tag": "v0.5.1",
         "commit": "7d3eda4fca00782624ef8e99db84488711ba17e3"
       },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v0.1.2",
+        "commit": "f68badb67341b4a4c83d7f449a4e985613ff63d5"
+      },
       "page-js": {
         "git": "https://github.com/tmeasday/meteor-page-js.git",
         "tag": "v1.3.3",
         "commit": "c1e9832af3fc2b2f5139a16d93a82ca6fa0655da"
+      },
+      "bootstrap-updated": {
+        "git": "https://github.com/Charuru/bootstrap-updated.git",
+        "tag": "v1.0.1",
+        "commit": "bdd5fcc8e134e62bcbb9d11aad8270534ffb6493"
       }
     }
   }

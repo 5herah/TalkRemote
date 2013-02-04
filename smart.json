@@ -2,6 +2,7 @@
   "packages": {
     "router": {},
     "stylus-mixin": {},
-    "d3js-package": {}
+    "d3js-package": {},
+    "font-awesome": {}
   }
 }

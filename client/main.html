@@ -7,25 +7,28 @@
 </head>
 
 <body>
-  <div class="container">
     {{renderPage}}
-  </div>
     {{> footer}}
+    <div class="loginButtons">
+    {{loginButtons}}
+    </div>
 </body>
 
 <template name="mainPage">
-  <h1>TalkRemote</h1>
-  <p>TalkRemote is a remote control for lectures. Sherah is going to write a good blurb and instructions here but right now she is busy coding shit so she can't do it yet.</p>
-  <div class="frontPageRoomForm">
-    <form class="goToRoomForm">
-      <p>Join a room:
-      <input type="text" name="roomName" placeholder="(Room name)">
-      <button type="submit" class="btn">Submit</button></p>
-    </form>
-  </div>
-  <div class="demoRoomPanel">
-    <button class="btn btn-large left studentdemo" type="button">Student View Demo</button>
-    <button class="btn btn-large right teacherdemo" type="button">Teacher View Demo</button>
+  <div class="container-main">
+    <h1>TalkRemote</h1>
+    <p>TalkRemote is a remote control for lectures. Sherah is going to write a good blurb and instructions here but right now she is busy coding shit so she can't do it yet.</p>
+    <div class="frontPageRoomForm">
+      <form class="goToRoomForm">
+        <p>Join a room:
+        <input type="text" name="roomName" placeholder="(Room name)">
+        <button type="submit" class="btn">Submit</button></p>
+      </form>
+    </div>
+    <div class="demoRoomPanel">
+      <button class="btn btn-large left studentdemo" type="button">Student View Demo</button>
+      <button class="btn btn-large right teacherdemo" type="button">Teacher View Demo</button>
+    </div>
   </div>
 </template>
 
@@ -69,13 +72,13 @@
   </div>
 
   {{> remote}}
+</template>
 
+<template name="login">
   <div class="loginButtons">
     {{loginButtons}}
   </div>
 </template>
-
-
 
 
 
