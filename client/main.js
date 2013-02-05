@@ -64,11 +64,10 @@ var getVoteCount = function(button){
 
 Template.remote.events({
   'click .remoteButton': function(event){
-    $('#loginButtons').modal('show');
 
     var button = event.target.id;
-    console.log(event.target.parentElement);
-
+    console.log(event);
+    console.log(event.srcElement.className);
     Votes.insert({
       room: this.location.pathname,
       username: 'person',//Meteor.user().profile.name,
@@ -77,8 +76,9 @@ Template.remote.events({
       timestamp: Date()
     });
 
-    $(".activeButton").removeClass("activeButton");
-    event.target.parentElement.addClass('activeButton');
+    $(".userselection").removeClass("userselection");
+    //$(button).addClass('userselection');
+
   }
 });
 

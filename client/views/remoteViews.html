@@ -1,21 +1,21 @@
 <template name="remote">
   <div class="remote">
 	<ul>
-      <li class="remoteButton" id="pause"><i class="icon-pause icon-3x"></i></li>
-	  <li class="remoteButton" id="rewind"><i class="icon-backward icon-3x"></i></li>
-	  <li class="remoteButton userselection" id="play"><i class="icon-play icon-3x"></i></li>
-	  <li class="remoteButton teacherselection" id="fastforward"><i class="icon-forward icon-3x"></i></li>
-	  <li class="remoteButton" id="eject"><i class="icon-eject icon-3x"></i></li>
+      <li class="remoteButton" id="pause"><i class="icon-pause icon-2x"></i></li>
+	  <li class="remoteButton" id="rewind"><i class="icon-backward icon-2x"></i></li>
+	  <li class="remoteButton" id="play"><i class="icon-play icon-2x"></i></li>
+	  <li class="remoteButton" id="fastforward"><i class="icon-forward icon-2x"></i></li>
+	  <li class="remoteButton" id="eject"><i class="icon-eject icon-2x"></i></li>
 	</ul>
   </div>
 </template>
 
 <template name="remoteStats">
   <div class="remoteStats">
-		<ul>
-			{{#each voteStats}}
-				<li class="remoteButtonStats" id="{{button}}Stats"><p>{{voteCount}}</p></li>
-			{{/each}}
-		</ul>
-	</div>
+	<ul>
+	  {{#each voteStats}}
+		<li class="remoteButtonStats" id="{{button}}Stats"><p>{{voteCount}}</p></li>
+		{{/each}}
+	</ul>
+  </div>
 </template>

@@ -2,7 +2,6 @@
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 200;
-    margin: 50px 0;
     padding: 0;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -31,16 +30,15 @@ a{
     border:4px solid #9BFAE2;
 }
 
-.remote img:hover{
-    border-bottom: 6px solid #ccc;
-}
-
-
 .remoteStats{
-    width:375px;
-    height:50px;
+    width:95%;
+    height:10%;
     margin:0 auto;
     padding:10px;
+}
+
+.remote img:hover{
+    border-bottom: 6px solid #ccc;
 }
 
 .container-main{
@@ -97,11 +95,11 @@ a{
 }
 
 .remoteStats li{
-    width:75px;
+    width: 15%;
     text-align: center;
-    height:75px;
-    padding-top:7px;
-    padding-bottom:7px;
+    padding: 2%;
+    margin: .5%;
+    border-radius:7%;
 }
 
 .remoteButton{
@@ -115,7 +113,7 @@ a{
 
 .remoteButtonStats{
     margin-top:5px;
-    width:10px;
+    width:30px;
     float:left;
 }
 
