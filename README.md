@@ -1,6 +1,6 @@
 TalkRemote
 ==========
-Talk Remote is a remote control app used by the audience of a lecture to provide feedback to the lecturer in real time.
+Talk Remote (<a href="http://talkremote.meteor.com">talkremote.meteor.com</a>) is a remote control app used by the audience of a lecture to provide feedback to the lecturer in real time.
 
 Audience members join a room and press video-player-like "remote control" buttons that then update the lecturer's remote display.
 
