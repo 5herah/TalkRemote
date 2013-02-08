@@ -7,12 +7,6 @@ Meteor.Router.add({
   '*/teacher' : 'teacherView'
 });
 
-// use this code to manage active state on buttons
-// $("li a").click( function() {
-//   $(".active").removeClass("active");
-//   $(this).parent("li").addClass("active");
-// });
-
 Template.room.roomName = function(){
   return this.location.pathname;
 };
@@ -28,7 +22,6 @@ Template.mainPage.events({
   'click .teacherdemo': function(){
     Meteor.Router.to('studentdemo/teacher');
   }
-
 });
 
 Template.remoteStats.voteStats = function(){
@@ -64,20 +57,18 @@ var getVoteCount = function(button){
 
 Template.remote.events({
   'click .remoteButton': function(event){
-
     var button = event.target.id;
-    console.log(event);
-    console.log(event.srcElement.className);
+    console.log(button);
     Votes.insert({
       room: this.location.pathname,
-      username: 'person',//Meteor.user().profile.name,
-      userID: 232323,//Meteor.user()._id,
+      username: Meteor.user().profile.name,
+      userID: Meteor.user()._id,
       button: button,
       timestamp: Date()
     });
 
     $(".userselection").removeClass("userselection");
-    //$(button).addClass('userselection');
+    $("#" + button).addClass('userselection');
 
   }
 });

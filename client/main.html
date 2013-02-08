@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    {{renderPage}}
-    {{> footer}}
-    <div class="loginButtons">
-    {{loginButtons}}
-    </div>
+  {{renderPage}}
+  {{> footer}}
+  <div class="loginButtons">
+  {{loginButtons}}
+  </div>
 </body>
 
 <template name="mainPage">
@@ -21,8 +21,9 @@
     <div class="frontPageRoomForm">
       <form class="goToRoomForm">
         <p>Join a room:
-        <input type="text" name="roomName" placeholder="(Room name)">
-        <button type="submit" class="btn">Submit</button></p>
+          <input type="text" name="roomName" placeholder="(Room name)">
+          <button type="submit" class="btn">Submit</button>
+        </p>
       </form>
     </div>
     <div class="demoRoomPanel">
@@ -70,13 +71,12 @@
       <a class="brand" href="/student">Remote Room {{roomName}}</a>
     </div>
   </div>
-
   {{> remote}}
 </template>
 
 <template name="login">
   <div class="loginButtons">
-    {{loginButtons}}
+  {{loginButtons}}
   </div>
 </template>
 
