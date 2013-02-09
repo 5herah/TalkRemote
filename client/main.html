@@ -37,6 +37,7 @@
   {{> teacherHeader}}
   {{> remote}}
   {{> remoteStats}}
+  {{> teacherSettings}}
 </template>
 
 <template name="teacherHeader">
@@ -48,6 +49,15 @@
         <li><a href="/studentTotalsPane">Stats</a></li>
       </ul>
     </div>
+  </div>
+</template>
+
+<template name="teacherSettings">
+  <div class="teacherSettings">
+    <label class="checkbox">
+      <input type="checkbox" value="teacherSignUp">
+      Make me the teacher
+    </label>
   </div>
 </template>
 

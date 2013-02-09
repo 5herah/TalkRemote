@@ -149,6 +149,10 @@ input[type="text"]{
   padding-bottom:20px;
 }
 
+.teacherSettings{
+  margin: 0 auto;
+}
+
 .loginButtons{
   margin: 40px auto;
   width: 166px;
