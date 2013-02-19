@@ -4,23 +4,41 @@ Meteor.Router.add({
     Session.set('roomName', room);
     return 'room';
   },
-  '*/teacher' : 'teacherView'
+  '*/teacher' : 'teacherView',
+  '/settings' : 'settings',
+  '/statsView' : 'statsView'
 });
 
 Template.room.roomName = function(){
   return this.location.pathname;
 };
 
-Template.mainPage.events({
+Template.home.events({
   'submit': function(event, target){
     event.preventDefault();
     Meteor.Router.to($('[name=roomName]').val());
   },
-  'click .studentdemo': function(){
+  'click .studentDemoButton': function(){
     Meteor.Router.to('studentdemo');
   },
-  'click .teacherdemo': function(){
+  'click .teacherDemoButton': function(){
     Meteor.Router.to('studentdemo/teacher');
+  }
+});
+
+Template.sidebar.events({
+  'click li': function(event){
+    switch(event.target.parentElement.id){
+      case 'homeNav':
+        Meteor.Router.to('/');
+      break;
+      case 'loginNav':
+        Meteor.Router.to('/settings');
+      break;
+      case 'statsNav':
+        Meteor.Router.to('/statsView');
+      break;
+    }
   }
 });
 
@@ -61,8 +79,8 @@ Template.remote.events({
     console.log(button);
     Votes.insert({
       room: this.location.pathname,
-      username: Meteor.user().profile.name,
-      userID: Meteor.user()._id,
+      username: 'dude',//Meteor.user().profile.name,
+      userID: 222,//Meteor.user()._id,
       button: button,
       timestamp: Date()
     });

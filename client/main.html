@@ -8,71 +8,60 @@
 
 <body>
   {{renderPage}}
-  {{> footer}}
-  <div class="loginButtons">
-  {{loginButtons}}
-  </div>
 </body>
 
 <template name="mainPage">
-  <div class="container-main">
-    <h1>TalkRemote</h1>
-    <h4 class="subheading">a remote control for presentations.</h4>
-    <div class="frontPageRoomForm">
-      <form class="goToRoomForm">
-        <p>Join a room:
-          <input type="text" name="roomName" placeholder="(Room name)">
-          <button type="submit" class="btn">Submit</button>
-        </p>
-      </form>
-    </div>
-    <div class="demoRoomPanel">
-      <button class="btn btn-large left studentdemo" type="button">Student View Demo</button>
-      <button class="btn btn-large right teacherdemo" type="button">Teacher View Demo</button>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        {{> sidebar}}
+      </div>
+      <div class="span6 mainPageContainer">
+        {{> home}}
+      </div>
     </div>
   </div>
+</template>
+
+<template name="sidebar">
+  <div id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active" id="homeNav"><a href="#">Home</a></li>
+      <li id="loginNav"><a href="#">{{loginButtons}}</a></li>
+      <li id="statsNav"><a href="#">Stats</a></li>
+    </ul>
+  </div>
+</template>
+
+<template name="home">
+  <h1>TalkRemote</h1>
+  <h4 class="subheading">a remote control for presentations.</h4>
+  <div class="frontPageRoomForm">
+    <form class="goToRoomForm">
+      <p>Join a room:
+        <input type="text" name="roomName" placeholder="(Room name)">
+        <button type="submit" class="btn">Submit</button>
+      </p>
+    </form>
+  </div>
+  <div class="demoRoomPanel">
+    <button class="btn btn-large left studentDemoButton" type="button">Student View Demo</button>
+    <button class="btn btn-large right teacherDemoButton" type="button">Teacher View Demo</button>
+  </div>
+</template>
+
+<template name="settings">
+  user settings yo
 </template>
 
 <template name="teacherView">
-  {{> teacherHeader}}
   {{> remote}}
   {{> remoteStats}}
-  {{> teacherSettings}}
-</template>
-
-<template name="teacherHeader">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="/teacher">Teacher</a>
-      <ul class="nav">
-        <li><a href="/teacher">Remote</a></li>
-        <li><a href="/studentTotalsPane">Stats</a></li>
-      </ul>
-    </div>
-  </div>
 </template>
 
 <template name="teacherSettings">
   <div class="teacherSettings">
-    <label class="checkbox">
-      <input type="checkbox" value="teacherSignUp">
-      Make me the teacher
-    </label>
   </div>
-</template>
-
-<template name="studentHeader">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="/student">Student Remote</a>
-    </div>
-  </div>
-</template>
-
-<template name="footer">
-  <ul class="pager">
-    <li><a href="/">Home</a></li>
-  </ul>
 </template>
 
 <template name="room">
@@ -88,6 +77,10 @@
   <div class="loginButtons">
   {{loginButtons}}
   </div>
+</template>
+
+<template name="statsView">
+  STATS VIEW
 </template>
 
 
