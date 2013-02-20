@@ -1,6 +1,6 @@
 <head>
   <title>Talk Remote</title>
-  <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
   <meta name="apple-mobile-web-app-capable" content="yes" /> 
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />  
   <meta name="viewport" content="width=device-width" />
@@ -37,16 +37,15 @@
   <h1>TalkRemote</h1>
   <h4 class="subheading">a remote control for presentations.</h4>
   <div class="frontPageRoomForm">
-    <form class="goToRoomForm">
-      <p>Join a room:
-        <input type="text" name="roomName" placeholder="(Room name)">
-        <button type="submit" class="btn">Submit</button>
-      </p>
+    <form class="row goToRoomForm">
+      <p class="span2">Join a room:</p>
+        <input type="text" name="roomName" class="span7" placeholder="(Room name)">
+        <button type="submit" class="span3 btn btn-large joinRoomButton">Submit</button>
     </form>
   </div>
-  <div class="demoRoomPanel">
-    <button class="btn btn-large left studentDemoButton" type="button">Student View Demo</button>
-    <button class="btn btn-large right teacherDemoButton" type="button">Teacher View Demo</button>
+  <div class="row demoRoomPanel">
+    <button class="span6 btn btn-large left studentDemoButton" type="button">Student View Demo</button>
+    <button class="span6 btn btn-large right teacherDemoButton" type="button">Teacher View Demo</button>
   </div>
 </template>
 
@@ -65,11 +64,6 @@
 </template>
 
 <template name="room">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="/student">Remote Room {{roomName}}</a>
-    </div>
-  </div>
   {{> remote}}
 </template>
 

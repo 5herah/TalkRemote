@@ -1,6 +1,7 @@
 /* CSS declarations go here */
 notblack = #555
 red = #cc3535
+googleFont = "Convergence"
 
 body
   font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -16,10 +17,10 @@ body
 
 h1, h2, h3, h4, h5
   color red
-  font-family 'Fjalla One'
+  font-family googleFont
 
 h1
-  border-bottom 6px #fff solid
+  border-bottom 1px #ccc solid
   padding 10px
 
 a 
@@ -31,7 +32,6 @@ a
   margin 0 auto
   padding 10px
   background-color  #C3FAEC
-  border 4px solid #9BFAE2
 
 
 .remote .userselection
@@ -64,11 +64,26 @@ a
     padding 2%
 
 .frontPageRoomForm
-    width 95%
     margin 0 auto
+    background-color rgba(140,201,179,0.4)
+    padding 10px
+    margin 30px auto
+    padding 30px
+    font-size 120%
+
+.joinRoomButton
+    margin 10px
 
 .goToRoomForm input
     margin-bottom 0
+    height 33px
+    font-size 100%
+    padding 5px
+    width 300px
+
+.goToRoomForm p
+    font-size 120%
+    vertical-align 
 
 .right
   float right
@@ -87,7 +102,7 @@ a
   color #fff
 
 .demoRoomPanel
-  width 90%
+  width 60%
   margin 0 auto
 
 #outer 
@@ -110,14 +125,14 @@ a
 
 
 .remote li
-    width 15%
+    width 14%
     text-align  center
     padding 2%
     margin 1%
 
 
 .remote li:hover
-    color #ccc
+    color #e6eda4
 
 
 .remoteStats li
@@ -137,7 +152,7 @@ a
 
 .remoteButtonStats p, .remoteStats
     font-size  42px
-    font-family "Fjalla One"
+    font-family googleFont
 
 
 .loginButtons
