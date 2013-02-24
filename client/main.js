@@ -14,7 +14,7 @@ Template.room.roomName = function(){
 };
 
 Template.home.events({
-  'submit': function(event, target){
+  'click .submitRoomButton': function(event, target){
     event.preventDefault();
     Meteor.Router.to($('[name=roomName]').val());
   },
@@ -76,11 +76,10 @@ var getVoteCount = function(button){
 Template.remote.events({
   'click .remoteButton': function(event){
     var button = event.target.id;
-    console.log(button);
     Votes.insert({
       room: this.location.pathname,
-      username: 'dude',//Meteor.user().profile.name,
-      userID: 222,//Meteor.user()._id,
+      username: Meteor.user().profile.name,
+      userID: Meteor.user()._id,
       button: button,
       timestamp: Date()
     });
