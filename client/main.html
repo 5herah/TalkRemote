@@ -16,7 +16,7 @@
       <div class="span2">
         {{> sidebar}}
       </div>
-      <div class="span6 mainPageContainer">
+      <div class="span4 mainPageContainer">
         {{> home}}
       </div>
     </div>
@@ -27,25 +27,27 @@
   <div id="sidebar">
     <ul class="nav nav-pills nav-stacked">
       <li class="active" id="homeNav"><a href="#">Home</a></li>
-      <li id="loginNav"><a href="#">{{loginButtons}}</a></li>
       <li id="statsNav"><a href="#">Stats</a></li>
+      <li id="loginNav"><a href="#">{{loginButtons}}</a></li>
     </ul>
   </div>
 </template>
 
 <template name="home">
-  <h1>TalkRemote</h1>
-  <h4 class="subheading">a remote control for presentations.</h4>
-  <div class="frontPageRoomForm">
-    <form class="row goToRoomForm">
-      <p class="span2">Join a room:</p>
-        <input type="text" name="roomName" class="span7" placeholder="(Room name)">
-        <button type="submit" class="span3 btn btn-large joinRoomButton">Submit</button>
-    </form>
-  </div>
-  <div class="row demoRoomPanel">
-    <button class="span6 btn btn-large left studentDemoButton" type="button">Student View Demo</button>
-    <button class="span6 btn btn-large right teacherDemoButton" type="button">Teacher View Demo</button>
+  <div class="row-fluid">
+    <div class="span12">
+      <h1>TalkRemote</h1>
+      <h4 class="subheading">a remote control for presentations.</h4>
+      <div class="row-fluid roomSubmitBox">
+        <div class="row-fluid joinText">Join a Room:</div>
+        <input type="text" name="roomName" class="span12" id="roomSubmitInput" placeholder="(Room name)">
+        <button type="submit" class="btn btn-large span12 submitRoomButton">Submit</button>
+      </div>
+      <div class="demoRoomPanel row-fluid">
+        <button class="span6 btn btn-large left studentDemoButton" type="button">Student Demo</button>
+        <button class="span6 btn btn-large right teacherDemoButton" type="button">Teacher Demo</button>
+      </div>
+    </div>
   </div>
 </template>
 

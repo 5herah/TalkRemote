@@ -2,6 +2,7 @@
 notblack = #555
 red = #cc3535
 googleFont = "Convergence"
+placeholderFont = 120%, #ddd
 
 body
   font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -61,18 +62,30 @@ a
 .mainPageContainer
     background-color rgba(140,201,179,0.4)
     color #fff
-    padding 2%
-
-.frontPageRoomForm
-    margin 0 auto
-    background-color rgba(140,201,179,0.4)
-    padding 10px
-    margin 30px auto
     padding 30px
+
+.submitRoomButton
+    margin 0
+
+.roomSubmitBox
+    margin-bottom 30px
+    background-color rgba(140,201,179,0.4)
+    padding 15px 10px
+    border-radius 8px
+    margin-left -10px
     font-size 120%
 
-.joinRoomButton
-    margin 10px
+#roomSubmitInput
+    height 40px
+    border none
+    margin-bottom 10px
+    font-size 100%
+
+.joinText
+    margin-bottom 5px
+
+button.btn.btn-large, input[type="submit"].btn.btn-large
+    margin 0
 
 .goToRoomForm input
     margin-bottom 0
