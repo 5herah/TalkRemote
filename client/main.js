@@ -72,6 +72,11 @@ var getVoteCount = function(button){
 
 Template.remote.events({
   'click .remoteButton': function(event){
+    //if the user who clicked the button is logged in as a teacher,
+
+    //give the button icon a yellow color.
+
+
     var button = event.target.id;
     Votes.insert({
       room: this.location.pathname,
