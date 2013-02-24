@@ -73,7 +73,7 @@ var getVoteCount = function(button){
 Template.remote.events({
   'click .remoteButton': function(event){
     //if the user who clicked the button is logged in as a teacher,
-    if(Meteor.user().name === "Sherah Smith"){
+    if(Meteor.user().profile.name === "Sherah Smith"){
     //give the button icon a yellow color.
       $(".teacherSelectedButton").removeClass("teacherSelectedButton");
       $("#" + button).addClass('teacherSelectedButton');
