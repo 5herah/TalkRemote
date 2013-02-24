@@ -13,13 +13,19 @@
 <template name="mainPage">
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="span2">
-        {{> sidebar}}
-      </div>
       <div class="span4 mainPageContainer">
+        {{> nav}}
         {{> home}}
       </div>
     </div>
+  </div>
+</template>
+
+<template name="nav">
+  <div class="btn-group">
+    <button class="btn btn-large"><i class="icon-home"></i> Home</button>
+    <button class="btn btn-large"><i class="icon-trophy"></i> Stats</button>
+    <button class="btn btn-large"><i class="icon-key"></i> {{loginButtons}}</button>
   </div>
 </template>
 
@@ -48,6 +54,28 @@
         <button class="span6 btn btn-large right teacherDemoButton" type="button">Teacher Demo</button>
       </div>
     </div>
+  </div>
+</template>
+
+<template name="remoteNav">
+  <div class="remoteNavGrid">
+    
+      <ul>
+        <li>thing</li>
+        <li>thing</li>
+        <li>thing</li>
+      </ul>
+      <ul>
+        <li>thing</li>
+        <li>thing</li>
+        <li>thing</li>
+      </ul>
+      <ul>
+        <li>thing</li>
+        <li>thing</li>
+        <li>thing</li>
+      </ul>
+    
   </div>
 </template>
 

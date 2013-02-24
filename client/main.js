@@ -26,16 +26,13 @@ Template.home.events({
   }
 });
 
-Template.sidebar.events({
-  'click li': function(event){
-    switch(event.target.parentElement.id){
-      case 'homeNav':
+Template.nav.events({
+  'click .btn': function(event){
+    switch(event.target.innerText){
+      case ' Home':
         Meteor.Router.to('/');
       break;
-      case 'loginNav':
-        Meteor.Router.to('/settings');
-      break;
-      case 'statsNav':
+      case ' Stats':
         Meteor.Router.to('/statsView');
       break;
     }
