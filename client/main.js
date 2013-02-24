@@ -33,7 +33,7 @@ Template.nav.events({
         Meteor.Router.to('/');
       break;
       case ' Stats':
-        Meteor.Router.to('/statsView');
+        Meteor.Router.to('statsView');
       break;
     }
   }
@@ -52,7 +52,7 @@ Template.remoteStats.voteStats = function(){
 var makeVoteStat = function(button){
   return {
     button: button,
-    voteCount: getVoteCount(button)//count of uniqued votes where the value is play.
+    voteCount: getVoteCount(button)
   };
 };
 
@@ -73,8 +73,11 @@ var getVoteCount = function(button){
 Template.remote.events({
   'click .remoteButton': function(event){
     //if the user who clicked the button is logged in as a teacher,
-
+    if(Meteor.user().name === "Sherah Smith"){
     //give the button icon a yellow color.
+      $(".teacherSelectedButton").removeClass("teacherSelectedButton");
+      $("#" + button).addClass('teacherSelectedButton');
+    }
 
 
     var button = event.target.id;
